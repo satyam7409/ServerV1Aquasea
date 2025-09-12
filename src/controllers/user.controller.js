@@ -56,7 +56,7 @@ export const uploadFasta = async (req, res) => {
       message: "File uploaded and processed successfully",
       fileUrl,
       predictions: mlResponse.data,
-    });
+    });    
   } catch (err) {
     console.error("--- 💥 An error occurred in uploadFasta ---");
     // Log detailed error information
