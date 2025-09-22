@@ -1,6 +1,8 @@
 import { supabase } from "../db/index.js";
 import path from "path";
 import axios from "axios"; // add axios for HTTP requests
+import { v4 as uuidv4 } from 'uuid';
+
 
 export const uploadFasta = async (req, res) => {
   console.log("--- Starting uploadFasta controller ---");
@@ -56,6 +58,7 @@ export const uploadFasta = async (req, res) => {
       message: "File uploaded and processed successfully",
       fileUrl,
       predictions: mlResponse.data,
+      // jobId: uuidv4(), // Generate a unique job ID for tracking
     });    
   } catch (err) {
     console.error("--- 💥 An error occurred in uploadFasta ---");
